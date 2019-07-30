@@ -1,0 +1,14 @@
+#jumbotron{
+    text-align: center
+}
+#trainTable{
+    text-align: center;
+    width: 90%;
+    margin: auto;
+    border: inset gray
+}
+#addTrainDiv{
+    text-align: center;
+    width: 50%;
+    margin: 20px auto
+}

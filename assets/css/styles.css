@@ -1,14 +1,84 @@
-#jumbotron{
-    text-align: center
+#wall{
+    background: gray
+}
+#frame{
+    background: url(../images/frame.jpg);
+    max-width: 100%;
+    height: auto;
+    padding: 50px
+}
+#blackcontainer{
+    width: 90%;
+    height: 90%;
+    margin: auto
+}
+#blackboard{
+    background: url(../images/background.jpg);
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+    padding: 15px;
+    border: black ridge 5px;
+}
+#header{
+    text-align: center;
+    font-family: 'Anton', sans-serif;
+    background: #f5f5f5;
+    margin: 30px;
+}
+#mainHead{
+    color: #414141;
+    font-size: 100px;
+    letter-spacing: 25px;
+    text-decoration: underline double;
+}
+#scheduleWord{
+    color: #414141;
+    font-size: 75px;
+    }
+#locationHead{
+    color: #414141;
+    font-size: 60px;
+}
+#dateHead{
+    color: #414141;
+    font-size: 60px;
 }
 #trainTable{
     text-align: center;
+    font-family: 'Sedgwick Ave', cursive;
+    color: #f5f5f5;
+    font-size: 25px;
     width: 90%;
     margin: auto;
-    border: inset gray
+}
+input[type="text"]
+{
+    background: transparent;
+    border: none;
+    color: white
 }
 #addTrainDiv{
     text-align: center;
+    font-family: 'Sedgwick Ave', cursive;
+    color: #f5f5f5;
+    font-size: 25px;
     width: 50%;
     margin: 20px auto
 }
+
+@media only screen and (max-width: 800px) {
+    #mainHead{
+        letter-spacing: normal;
+        font-size: 25px
+    }
+    #scheduleWord{
+        font-size: 20px;
+    }
+    #locationHead{
+        font-size: 20px;
+    }
+    #dateHead{
+        font-size: 20px;
+    }
+  }

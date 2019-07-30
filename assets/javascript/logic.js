@@ -5,6 +5,9 @@
 
 $(document).ready(function () {
 
+    var today = moment().format('MM/DD/YYYY')
+    $("#dateHead").append(today)
+
     //initialize firebase
     //var config = {
     //    aapiKey: "AIzaSyCFn_oHxP7oa644rlNjraWhk6ywl96staU",
@@ -48,14 +51,14 @@ $(document).ready(function () {
         $("#newTrainFrequency").val("")
         $("#newTrainNext").val("")
 
-        var nextDeparturePretty;
+        var nextDeparture = 0
 
         var newRow = $("<tr>").append(
             $("<td>").text(newName),
             $("<td>").text(newDestination),
             $("<td>").text(newFirst),
             $("<td>").text(newFrequency),
-            $("<td>").text(newNext),
+            $("<td>").text(nextDeparture),
         );
         $("#trainTableBody").append(newRow)
     })

@@ -26,17 +26,15 @@
     <table class="table" id="trainTable">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">#</th>
                 <th scope="col">Name</th>
                 <th scope="col">Destination</th>
                 <th scope="col">First Train</th>
-                <th scope="col">Frequency</th>
+                <th scope="col">Frequency (in minnutes)</th>
                 <th scope="col">Next Departure</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="trainTableBody">
             <tr>
-                <th scope="row">1</th>
                 <td>Thomas</td>
                 <td>San Antonio</td>
                 <td>08:00</td>
@@ -44,7 +42,6 @@
                 <td>22:15</td>
             </tr>
             <tr>
-                <th scope="row">2</th>
                 <td>Golden Pacific</td>
                 <td>Sacramento</td>
                 <td>08:15</td>
@@ -70,14 +67,14 @@
                     <input type="text" class="form-control" id="newTrainFirst">
                 </div>
                 <div class="form-group">
-                    <label for="newTrainFrequency">Frequency</label>
+                    <label for="newTrainFrequency">Frequency (minutes)</label>
                     <input type="text" class="form-control" id="newTrainFrequency">
                 </div>
                 <div class="form-group">
                     <label for="newTrainNext">Next Departure</label>
                     <input type="text" class="form-control" id="newTrainNext">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button id="newTrainButton" type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 
@@ -89,6 +86,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
     <script type="text/javascript" src="./assets/javascript/logic.js"></script>
 </body>
 

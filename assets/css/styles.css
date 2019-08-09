@@ -48,11 +48,26 @@
     font-size: 25px;
     width: 90%;
     margin: auto;
+    letter-spacing: 1px;
+}
+.labels{
+    cursor: pointer;
+    text-decoration: underline
 }
 input[type="text"]{
     background: transparent;
     border: none;
-    color: white
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    letter-spacing: 1px
+}
+input[type="time"]{
+    background: transparent;
+    border: none;
+    text-align: center;
+    font-size: 25px;
+    letter-spacing: 1px
 }
 #addTrainDiv{
     text-align: center;
@@ -60,7 +75,12 @@ input[type="text"]{
     color: #f5f5f5;
     font-size: 25px;
     width: 50%;
-    margin: 20px auto
+    margin: 20px auto;
+    letter-spacing: 1px;
+}
+.selected{
+    background: white;
+    color: white
 }
 
 @media only screen and (max-width: 800px) {

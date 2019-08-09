@@ -18,6 +18,9 @@ $(document).ready(function () {
     firebase.initializeApp(firebaseConfig);
     var database = firebase.database()
 
+    $("#newTrainFirst").on("click", function () {
+        $(this).addClass("selected");
+    })
 
     //search button click
     $("#newTrainButton").on("click", function (event) {
@@ -27,21 +30,28 @@ $(document).ready(function () {
         var newFirst = $("#newTrainFirst").val()
         var newFrequency = $("#newTrainFrequency").val()
 
-        //push inputs to firebase
-        var newTrain = {
-            Name: newName,
-            Destination: newDestination,
-            First: newFirst,
-            Frequency: newFrequency,
-        }
-        database.ref().push(newTrain)
+        if (newName !== "" && newDestination !== "" && newFirst !== "" && newFrequency !== "") {
 
-        //Clear search boxes
-        $("#newTrainName").val("")
-        $("#newTrainDestination").val("")
-        $("#newTrainFirst").val("")
-        $("#newTrainFrequency").val("")
-        $("#newTrainNext").val("")
+            $("#newTrainFirst").removeClass("selected")
+
+            //push inputs to firebase
+            var newTrain = {
+                Name: newName,
+                Destination: newDestination,
+                First: newFirst,
+                Frequency: newFrequency,
+            }
+            database.ref().push(newTrain)
+
+            //Clear search boxes
+            $("#newTrainName").val("")
+            $("#newTrainDestination").val("")
+            $("#newTrainFirst").val("")
+            $("#newTrainFrequency").val("")
+            $("#newTrainNext").val("")
+        } else {
+            alert("Fill in all input fields")
+        }
     })
 
     //database on update child
@@ -50,22 +60,21 @@ $(document).ready(function () {
         var newDestination = childSnapshot.val().Destination;
         var newFirst = childSnapshot.val().First;
         var newFrequency = childSnapshot.val().Frequency;
-        console.log("name: " + newName)
-        console.log("destination: " + newDestination)
-        console.log("first: " + newFirst)
-        console.log("frequency: " + newFrequency)
 
         //next departure math
         var nextDeparture = $("#newTrainFirst").val().trim()
-        var timeTest = moment(nextDeparture, "HH" + "mm").format('LT')
+
+        //console.log(timeTest)
+
+        var firstPretty = moment(newFirst, "HH" + "mm").format('LT')
 
         //append database values to page
         var newRow = $("<tr>").append(
             $("<td>").text(newName),
             $("<td>").text(newDestination),
-            $("<td>").text(newFirst),
+            $("<td>").text(firstPretty),
             $("<td>").text(newFrequency),
-            $("<td>").text(nextDeparture),
+            $("<td>").text("?"),//add nextDeparture here
         );
         $("#trainTableBody").append(newRow)
     })
